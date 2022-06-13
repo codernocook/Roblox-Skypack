@@ -1,8 +1,8 @@
-local Lighting = game.Lightning
+local Lighting = game.Lighting
 local random = math.random(100000000, 999999999)
 Lighting.Name = "Lighting"..random
 local LightingName = "Lighting"..random
-for i,v in pairs(LightingName:GetChildren()) do
+for i,v in pairs(Lighting:GetChildren()) do
 	v:Destroy()
 end
 wait(.1)
