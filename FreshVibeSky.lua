@@ -1,4 +1,4 @@
-local Lighting = game.Lighting
+local Lighting = game:GetService("Lighting")
 local random = math.random(100000000, 999999999)
 Lighting.Name = "Lighting"..random
 local LightingName = "Lighting"..random
@@ -13,54 +13,57 @@ local Bloom = Instance.new("BloomEffect")
 local ColorCorrection = Instance.new("ColorCorrectionEffect")
 local DepthOfField = Instance.new("DepthOfFieldEffect")
 local SunRays = Instance.new("SunRaysEffect")
+local Blur = Instance.new("BlurEffect")
 --------------
 
 --Parent--
-Atmosphere.Parent = game[LightingName]
-Sky.Parent = game[LightingName]
-Bloom.Parent = game[LightingName]
-ColorCorrection.Parent = game[LightingName]
-DepthOfField.Parent = game[LightingName]
-SunRays.Parent = game[LightingName]
+Atmosphere.Parent = game:GetService("Lighting")
+Sky.Parent = game:GetService("Lighting")
+Bloom.Parent = game:GetService("Lighting")
+Blur.Parent = game:GetService("Lighting")
+ColorCorrection.Parent = game:GetService("Lighting")
+DepthOfField.Parent = game:GetService("Lighting")
+SunRays.Parent = game:GetService("Lighting")
 ----------
 
 --------Vibe Sky pack--------
 	--Vibe Sky Pack
-	game[LightingName].Sky.SkyboxBk = "rbxassetid://5084575798"
-	game[LightingName].Sky.SkyboxDn = "rbxassetid://5084575916"
-	game[LightingName].Sky.SkyboxFt = "rbxassetid://5103949679"
-	game[LightingName].Sky.SkyboxLf = "rbxassetid://5103948542"
-	game[LightingName].Sky.SkyboxRt = "rbxassetid://5103948784"
-	game[LightingName].Sky.SkyboxUp = "rbxassetid://5084576400"
-	game[LightingName].Sky.MoonAngularSize = 0
-	game[LightingName].Sky.SunAngularSize = 0
-    game[LightingName].Sky.SunTextureId = ""
-    game[LightingName].Sky.MoonTextureId = ""
-	game[LightingName].Brightness = 0
-	game[LightingName].GlobalShadows = true
-	game[LightingName].ClockTime = 17.8
-	game[LightingName].GeographicLatitude = 0
+	Sky.SkyboxBk = "rbxassetid://5084575798"
+	Sky.SkyboxDn = "rbxassetid://5084575916"
+	Sky.SkyboxFt = "rbxassetid://5103949679"
+	Sky.SkyboxLf = "rbxassetid://5103948542"
+	Sky.SkyboxRt = "rbxassetid://5103948784"
+	Sky.SkyboxUp = "rbxassetid://5084576400"
+	Sky.MoonAngularSize = 0
+	Sky.SunAngularSize = 0
+	
+	game:GetService("Lighting").Brightness = 0
+	game:GetService("Lighting").GlobalShadows = true
+	game:GetService("Lighting").ClockTime = 17.8
+	game:GetService("Lighting").GeographicLatitude = 0
 
+	Atmosphere.Density = 0.3
+	Atmosphere.Offset = 0.25
+	Atmosphere.Color = Color3.new(199, 199, 199)
+	Atmosphere.Decay = Color3.new(106, 112, 125)
+	Atmosphere.Glare = 0
+	Atmosphere.Haze = 0
 
-	game[LightingName].Atmosphere.Density = 0.3
-	game[LightingName].Atmosphere.Offset = 0.25
-	game[LightingName].Atmosphere.Color = Color3.new(199, 199, 199)
-	game[LightingName].Atmosphere.Decay = Color3.new(106, 112, 125)
-	game[LightingName].Atmosphere.Glare = 0
-	game[LightingName].Atmosphere.Haze = 0
+	Blur.Size = 4
+	Blue.Enabled = true
+	
+	Bloom.Enabled = true
+	Bloom.Intensity = 1
+	Bloom.Size = 24
+	Bloom.Threshold = 2
 
-	game[LightingName].Bloom.Enabled = true
-	game[LightingName].Bloom.Intensity = 1
-	game[LightingName].Bloom.Size = 24
-	game[LightingName].Bloom.Threshold = 2
+	DepthOfField.Enabled = false
+	DepthOfField.FarIntensity = 0.1
+	DepthOfField.FocusDistance = 0.05
+	DepthOfField.InFocusRadius = 30
+	DepthOfField.NearIntensity = 0.75
 
-	game[LightingName].DepthOfField.Enabled = false
-	game[LightingName].DepthOfField.FarIntensity = 0.1
-	game[LightingName].DepthOfField.FocusDistance = 0.05
-	game[LightingName].DepthOfField.InFocusRadius = 30
-	game[LightingName].DepthOfField.NearIntensity = 0.75
-
-	game[LightingName].SunRays.Enabled = true
-	game[LightingName].SunRays.Intensity = 0.01
-	game[LightingName].SunRays.Spread = 0.1
+	SunRays.Enabled = true
+	SunRays.Intensity = 0.01
+	SunRays.Spread = 0.1
 ---------------------------------
